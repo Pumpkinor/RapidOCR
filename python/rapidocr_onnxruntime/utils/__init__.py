@@ -9,7 +9,12 @@ import yaml
 from .infer_engine import OrtInferSession
 from .load_image import LoadImage, LoadImageError
 from .logger import get_logger
-from .parse_parameters import UpdateParameters, init_args, update_model_path
+from .parse_parameters import (
+    GlobalParams,
+    UpdateParameters,
+    init_args,
+    update_model_path,
+)
 from .vis_res import VisRes
 
 

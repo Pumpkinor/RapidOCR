@@ -7,9 +7,22 @@ from typing import Any, Dict, List, Optional, Union
 
 import numpy as np
 from PIL import Image
+from pydantic import BaseModel
 
 root_dir = Path(__file__).resolve().parent.parent
 InputType = Union[str, np.ndarray, bytes, Path, Image.Image]
+
+
+class GlobalParams(BaseModel):
+    text_score: float = 0.5
+    use_det: bool = True
+    use_cls: bool = True
+    use_rec: bool = True
+    print_verbose: bool = False
+    min_height: int = 30
+    width_height_ratio: int = 8
+    intra_op_num_threads: float = -1
+    inter_op_num_threads: float = -1
 
 
 def update_model_path(config: Dict[str, Any]) -> Dict[str, Any]:

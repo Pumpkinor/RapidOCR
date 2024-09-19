@@ -12,6 +12,7 @@ from .ch_ppocr_cls import TextClassifier
 from .ch_ppocr_det import TextDetector
 from .ch_ppocr_rec import TextRecognizer
 from .utils import (
+    GlobalParams,
     LoadImage,
     UpdateParameters,
     VisRes,
@@ -38,7 +39,7 @@ class RapidOCR:
             updater = UpdateParameters()
             config = updater(config, **kwargs)
 
-        global_config = config["Global"]
+        global_config = GlobalParams(**config["Global"])
         self.print_verbose = global_config["print_verbose"]
         self.text_score = global_config["text_score"]
         self.min_height = global_config["min_height"]
